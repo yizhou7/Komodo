@@ -1,7 +1,7 @@
 DAFNYTIMELIMIT ?= 90
-VALEDIRECT ?= 1
-DAFNYFLAGS = /trace /errorTrace:0 /timeLimit:$(DAFNYTIMELIMIT) \
-    /ironDafny /allocated:1 /induction:1 $(EXTRADAFNYFLAGS) \
+VALEDIRECT ?= 0
+DAFNYFLAGS = /errorTrace:0 /timeLimit:$(DAFNYTIMELIMIT) \
+    /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@xxx@PROC@.smt2 $(EXTRADAFNYFLAGS) \
     $(call mkdafnyflags,$(notdir $(*))) \
     $(if $(DAFNYPROC),/proc:"$(DAFNYPROC)")
 VALEFLAGS = -includeSuffix .vad .gen.dfy
