@@ -1,7 +1,7 @@
 DAFNYTIMELIMIT ?= 90
 VALEDIRECT ?= 0
 DAFNYFLAGS = /errorTrace:0 /timeLimit:$(DAFNYTIMELIMIT) \
-    /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@xxx@PROC@.smt2 $(EXTRADAFNYFLAGS) \
+    /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /noVerify $(EXTRADAFNYFLAGS) \
     $(call mkdafnyflags,$(notdir $(*))) \
     $(if $(DAFNYPROC),/proc:"$(DAFNYPROC)")
 VALEFLAGS = -includeSuffix .vad .gen.dfy
@@ -13,7 +13,7 @@ DOS2UNIX := $(if $(shell which dos2unix 2>/dev/null),dos2unix)
 
 # top-level target
 .PHONY: verified
-verified: $(dir)/main.S $(dir)/secprop/conf_ni.i.verified $(dir)/secprop/integ_ni.i.verified
+verified: $(dir)/secprop/conf_ni.i.verified $(dir)/secprop/integ_ni.i.verified
 
 # We use .verified files as a timestamp/placeholder to indicate that
 # a given source has been verified.

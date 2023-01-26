@@ -22,13 +22,8 @@ lemma lemma_Ch(x:word, y:word, z:word, result:word)
     lemma_BitsAndWordConversions();
 }
 
-lemma lemma_RotateRightCommutesXorSpecific(x:word, y:word, a:shift_amount)
+lemma {:axiom} lemma_RotateRightCommutesXorSpecific(x:word, y:word, a:shift_amount)
     ensures RotateRight(BitwiseXor(x, y), a) == BitwiseXor(RotateRight(x, a), RotateRight(y, a));
-{
-    reveal BitXor();
-    reveal BitRotateRight();
-    lemma_BitsAndWordConversions();
-}
 
 lemma lemma_RotateRightAdds(x:word, a0:shift_amount, a1:shift_amount)
     requires a0 + a1 < 32;

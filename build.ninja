@@ -1,0 +1,271 @@
+
+rule dafny
+    command = tools/dafny/Dafny.exe $flags $in && touch $out
+
+rule dafny-nl
+    command = tools/dafny/Dafny.exe $flags $in && touch $out
+
+build verified/map_utils.gen.dfy.verified : dafny verified/map_utils.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/attest_input.gen.dfy.verified : dafny verified/attest_input.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/entry.s.dfy.verified : dafny verified/entry.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-helpers.i.dfy.verified : dafny verified/sha/sha256-helpers.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/words_and_bytes_isolated.i.dfy.verified : dafny verified/words_and_bytes_isolated.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/conf_ni_entry.i.dfy.verified : dafny verified/secprop/conf_ni_entry.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/remove.gen.dfy.verified : dafny verified/remove.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/entry.i.dfy.verified : dafny verified/entry.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/init_addrspace.gen.dfy.verified : dafny verified/init_addrspace.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/alloc_spare.gen.dfy.verified : dafny verified/alloc_spare.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/bitvectors_primitive.i.dfy.verified : dafny verified/bitvectors_primitive.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/smc_handler.gen.dfy.verified : dafny verified/smc_handler.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/attest_helpers.gen.dfy.verified : dafny verified/attest_helpers.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/words_and_bytes.s.dfy.verified : dafny verified/words_and_bytes.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/stop.gen.dfy.verified : dafny verified/stop.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/ARMprint.s.dfy.verified : dafny verified/ARMprint.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/pagedb.s.dfy.verified : dafny verified/pagedb.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/init_l2ptable.gen.dfy.verified : dafny verified/init_l2ptable.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/psrbits.i.dfy.verified : dafny verified/psrbits.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/sha/bit-vector-lemmas.i.dfy.verified : dafny verified/sha/bit-vector-lemmas.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/bitvector_words.s.dfy.verified : dafny verified/bitvector_words.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/bitvectors.i.dfy.verified : dafny verified/bitvectors.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/mapping.i.dfy.verified : dafny verified/mapping.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/memset.gen.dfy.verified : dafny verified/memset.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/ptebits.i.dfy.verified : dafny verified/ptebits.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/mapping.s.dfy.verified : dafny verified/mapping.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/verify.gen.dfy.verified : dafny verified/verify.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-body-00-15.gen.dfy.verified : dafny verified/sha/sha256-body-00-15.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/smcapi.s.dfy.verified : dafny verified/smcapi.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/smcapi.i.dfy.verified : dafny verified/smcapi.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/addrseq.dfy.verified : dafny verified/addrseq.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/sec_prop_util.i.dfy.verified : dafny verified/secprop/sec_prop_util.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/exhandler_state.s.dfy.verified : dafny verified/exhandler_state.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/exhandler_state.i.dfy.verified : dafny verified/exhandler_state.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/pagedb.i.dfy.verified : dafny verified/pagedb.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/allocate_page.gen.dfy.verified : dafny verified/allocate_page.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/kom_common.i.dfy.verified : dafny verified/kom_common.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256.s.dfy.verified : dafny verified/sha/sha256.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/init_dispatcher.gen.dfy.verified : dafny verified/init_dispatcher.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/bitvectors.s.dfy.verified : dafny verified/bitvectors.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0  /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/sha/sha256-body-helpers.gen.dfy.verified : dafny verified/sha/sha256-body-helpers.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/integ_ni_entry.i.dfy.verified : dafny verified/secprop/integ_ni_entry.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-api.gen.dfy.verified : dafny verified/sha/sha256-api.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/svcapi.s.dfy.verified : dafny verified/svcapi.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/memory-helpers.i.dfy.verified : dafny verified/sha/memory-helpers.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/nlarith.s.dfy.verified : dafny-nl verified/nlarith.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0
+
+build verified/svc_common.i.dfy.verified : dafny verified/svc_common.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/valedecls.gen.dfy.verified : dafny verified/valedecls.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/ptables.s.dfy.verified : dafny verified/ptables.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/entry.gen.dfy.verified : dafny verified/entry.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/main.dfy.verified : dafny verified/main.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/hmac-helpers.i.dfy.verified : dafny verified/sha/hmac-helpers.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-invariants.i.dfy.verified : dafny verified/sha/sha256-invariants.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/hmac.gen.dfy.verified : dafny verified/sha/hmac.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/declass.s.dfy.verified : dafny verified/secprop/declass.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/kom_common.s.dfy.verified : dafny verified/kom_common.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/verify_input.gen.dfy.verified : dafny verified/verify_input.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/kom_utils.gen.dfy.verified : dafny verified/kom_utils.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-one-block.gen.dfy.verified : dafny verified/sha/sha256-one-block.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256.i.dfy.verified : dafny verified/sha/sha256.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/ptables.i.dfy.verified : dafny verified/ptables.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/entrybits.i.dfy.verified : dafny verified/entrybits.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /proverOpt:OPTIMIZE_FOR_BV=true /noNLarith
+
+build verified/sha/hmac_common.s.dfy.verified : dafny verified/sha/hmac_common.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/map_common.gen.dfy.verified : dafny verified/map_common.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/conf_ni.i.dfy.verified : dafny verified/secprop/conf_ni.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/Sets.i.dfy.verified : dafny verified/Sets.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/attest.gen.dfy.verified : dafny verified/attest.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/integ_ni.i.dfy.verified : dafny verified/secprop/integ_ni.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/secprop/sec_prop.s.dfy.verified : dafny verified/secprop/sec_prop.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/Seqs.s.dfy.verified : dafny verified/sha/Seqs.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-body-16-xx.gen.dfy.verified : dafny verified/sha/sha256-body-16-xx.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha_common.s.dfy.verified : dafny verified/sha/sha_common.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/map_secure.gen.dfy.verified : dafny verified/map_secure.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/svc_handlers.gen.dfy.verified : dafny verified/svc_handlers.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/exception_handlers.gen.dfy.verified : dafny verified/exception_handlers.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/kom_print.s.dfy.verified : dafny verified/kom_print.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/exceptions.i.dfy.verified : dafny verified/exceptions.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/types.s.dfy.verified : dafny verified/types.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/Maybe.dfy.verified : dafny verified/Maybe.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/valesupp.i.dfy.verified : dafny verified/valesupp.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/Sets.s.dfy.verified : dafny verified/Sets.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/Seq.dfy.verified : dafny verified/Seq.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/ARMdef.s.dfy.verified : dafny verified/ARMdef.s.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/words_and_bytes.i.dfy.verified : dafny verified/words_and_bytes.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/svcapi.i.dfy.verified : dafny verified/svcapi.i.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/map_insecure.gen.dfy.verified : dafny verified/map_insecure.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/finalise.gen.dfy.verified : dafny verified/finalise.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
+build verified/sha/sha256-block-data-order.gen.dfy.verified : dafny verified/sha/sha256-block-data-order.gen.dfy
+  flags = /timeLimit:90 /ironDafny /allocated:1 /induction:1 /proverLog:@FILE@@PROC@.smt2 /compile:0 /noNLarith
+
